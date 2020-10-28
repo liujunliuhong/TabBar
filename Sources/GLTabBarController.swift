@@ -51,7 +51,19 @@ open class GLTabBarController: UITabBarController {
             guard let tabBar = self.tabBar as? GLTabBar, let _ = tabBar.items else {
                 return
             }
-            tabBar._select(newIndex: newValue)
+            
+            let count = tabBar.items?.count ?? 0
+            if count <= 0 {
+                return
+            }
+            var _selectedIndex = newValue
+            if newValue < 0 {
+                _selectedIndex = 0
+            }
+            if newValue >= count {
+                _selectedIndex = count - 1
+            }
+            tabBar._select(newIndex: _selectedIndex)
         }
     }
     
@@ -66,11 +78,22 @@ open class GLTabBarController: UITabBarController {
         }
     }
     
+    /// 设置`tabBar`的高度
+    public var tabBarHeight: CGFloat? {
+        didSet {
+            if let _tabBarHeight = self.tabBarHeight, !_tabBarHeight.isLessThanOrEqualTo(.zero) {
+                self.view.setNeedsLayout()
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
     fileprivate var shouldNext: Bool = true
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         let tabBar = GLTabBar()
+        tabBar.shadowColor = .blue
         tabBar._tabBarelegate = self
         self.setValue(tabBar, forKey: "tabBar")
         
@@ -82,6 +105,19 @@ open class GLTabBarController: UITabBarController {
             self.shouldNext = false
             self.selectedIndex = idx // 避免无限循环
             self.delegate?.tabBarController?(self, didSelect: vc)
+        }
+        
+        
+    }
+    
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let _tabBarHeight = self.tabBarHeight, !_tabBarHeight.isLessThanOrEqualTo(.zero) {
+            var frame = self.tabBar.frame
+            let beforeHeight: CGFloat = frame.size.height
+            frame.size.height = _tabBarHeight
+            frame.origin.y = frame.origin.y - (_tabBarHeight - beforeHeight)
+            self.tabBar.frame = frame
         }
     }
     

@@ -12,7 +12,6 @@ public class GLTabBarItem: UITabBarItem {
 
     public private(set) var containerView: GLTabBarItemContainerView?
     
-    
     public init(containerView: GLTabBarItemContainerView) {
         super.init()
         self.containerView = containerView

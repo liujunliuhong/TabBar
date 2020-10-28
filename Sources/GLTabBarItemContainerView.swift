@@ -12,8 +12,10 @@ private let _clearColor: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
 
 open class GLTabBarItemContainerView: UIView {
     
+    /// 是否被选中
     public private(set) var isSelected: Bool = false
     
+    /// 偏移量
     public var insets = UIEdgeInsets.zero {
         didSet {
             self.superview?.setNeedsLayout()
@@ -21,133 +23,148 @@ open class GLTabBarItemContainerView: UIView {
         }
     }
     
+    /// 正常状态下文本颜色
     public var normalTextColor: UIColor = UIColor(white: 0.57254902, alpha: 1.0) {
         didSet {
             self.updateDisplay()
         }
     }
     
+    /// 选中状态下文本颜色
     public var selectedTextColor: UIColor = UIColor(red: 0.0, green: 0.47843137, blue: 1.0, alpha: 1.0) {
         didSet {
             self.updateDisplay()
         }
     }
     
+    /// 正常状态下图片颜色
     public var normalIconColor: UIColor = UIColor(white: 0.57254902, alpha: 1.0) {
         didSet {
             self.updateDisplay()
         }
     }
     
+    /// 选中状态下图片颜色
     public var selectedIconColor: UIColor = UIColor(red: 0.0, green: 0.47843137, blue: 1.0, alpha: 1.0) {
         didSet {
             self.updateDisplay()
         }
     }
     
+    /// 正常状态下背景颜色
     public var normalBackgroundColor: UIColor = _clearColor {
         didSet {
             self.updateDisplay()
         }
     }
     
+    /// 选中状态下背景颜色
     public var selectedBackgroundColor: UIColor = _clearColor {
         didSet {
             self.updateDisplay()
         }
     }
     
+    /// 正常态下图片
     public var normalImage: UIImage? {
         didSet {
             self.updateDisplay()
         }
     }
     
+    /// 选中状态下图片
     public var selectedImage: UIImage? {
         didSet {
             self.updateDisplay()
         }
     }
     
+    /// 标题
     public var title: String? {
         didSet {
             self.updateDisplay()
-            self.updateLayout()
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
         }
     }
     
+    /// 图片渲染模式
     public var iconRenderingMode: UIImage.RenderingMode = UIImage.RenderingMode.alwaysOriginal {
         didSet {
             self.updateDisplay()
         }
     }
     
+    /// 角标偏移量，默认`UIOffset(horizontal: 6.0, vertical: -22.0)`
     public var badgeOffset: UIOffset = UIOffset(horizontal: 6.0, vertical: -22.0) {
         didSet {
             if badgeOffset != oldValue {
-                self.updateLayout()
+                self.setNeedsLayout()
+                self.layoutIfNeeded()
             }
         }
     }
     
+    /// 文本偏移量
     public var titlePositionAdjustment: UIOffset = UIOffset.zero {
         didSet {
-            self.updateLayout()
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
         }
     }
     
+    /// 图片偏移量
     public var imagePositionAdjustment: UIOffset = UIOffset.zero {
         didSet {
-            self.updateLayout()
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
         }
     }
     
+    /// 图片宽度（图片是一个正方形，因此图片高=图片宽）
     public var imageWidth: CGFloat = 20.0 {
         didSet {
-            self.updateLayout()
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
         }
     }
     
+    /// 文本字体
     public var font: UIFont = UIFont.systemFont(ofSize: 10) {
         didSet {
             self.updateDisplay()
-            self.updateLayout()
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
         }
     }
     
-    public private(set) lazy var badgeView: GLTabBarBadgeView = {
+    private var _badgeView: UIView?
+    /// 角标view(角标view的origin为容器的center)
+    public var badgeView: UIView? {
+        set {
+            _badgeView?.removeFromSuperview()
+            _badgeView = newValue
+            if _badgeView != nil {
+                self.addSubview(newValue!)
+            }
+            if let _b = newValue as? GLTabBarBadgeView {
+                _b.layoutChangeClosure = { [weak self] in
+                    guard let self = self else { return }
+                    self.setNeedsLayout()
+                    self.layoutIfNeeded()
+                }
+            }
+        }
+        get {
+            return _badgeView
+        }
+    }
+    
+    /// 默认的badgeView
+    public private(set) lazy var defaultBadgeView: GLTabBarBadgeView = {
         let badgeView = GLTabBarBadgeView()
         return badgeView
     }()
-//
-//    open var badgeValue: String? {
-//        didSet {
-//            if let _ = badgeValue {
-//                self.badgeView.badgeValue = badgeValue
-//                self.addSubview(badgeView)
-//                self.updateLayout()
-//            } else {
-//                // Remove when nil.
-//                self.badgeView.removeFromSuperview()
-//            }
-//            self.badgeChanged(animated: true, completion: nil)
-//        }
-//    }
-//
-//    public var badgeView: SwiftyTabBarBadgeView = SwiftyTabBarBadgeView() {
-//        willSet {
-//            if let _ = badgeView.superview {
-//                badgeView.removeFromSuperview()
-//            }
-//        }
-//        didSet {
-//            if let _ = badgeView.superview {
-//                self.updateLayout()
-//            }
-//        }
-//    }
-//
-//
     
     
     public lazy var imageView: UIImageView = {
@@ -185,6 +202,13 @@ open class GLTabBarItemContainerView: UIView {
 }
 
 extension GLTabBarItemContainerView {
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        self.updateLayout()
+    }
+}
+
+extension GLTabBarItemContainerView {
     private func initUI() {
         self.isUserInteractionEnabled = false
     }
@@ -192,11 +216,8 @@ extension GLTabBarItemContainerView {
     private func setupUI() {
         self.addSubview(self.imageView)
         self.addSubview(self.titleLabel)
-        self.addSubview(self.badgeView)
-        self.badgeView.layoutChangeClosure = { [weak self] in
-            guard let self = self else { return }
-            self.updateLayout()
-        }
+        
+        self.badgeView = self.defaultBadgeView // 使用默认的badgeView
     }
     
     private func updateDisplay() {
@@ -274,17 +295,20 @@ extension GLTabBarItemContainerView {
         }
         
         
-        let badgeSize = self.badgeView.intrinsicContentSize
-        if #available(iOS 11.0, *), isWide {
-            self.badgeView.frame = CGRect(x: self.imageView.frame.midX - 3 + self.badgeOffset.horizontal,
-                                          y: self.imageView.frame.midY + 3 + self.badgeOffset.vertical,
-                                          width: badgeSize.width,
-                                          height: badgeSize.height)
-        } else {
-            self.badgeView.frame = CGRect(x: w / 2.0 + self.badgeOffset.horizontal,
-                                          y: h / 2.0 + self.badgeOffset.vertical,
-                                          width: badgeSize.width,
-                                          height: badgeSize.height)
+        // 设置badgeView的frame
+        if let bv = _badgeView {
+            let badgeSize = bv.intrinsicContentSize
+            if #available(iOS 11.0, *), isWide {
+                bv.frame = CGRect(x: self.imageView.frame.midX - 3 + self.badgeOffset.horizontal,
+                                  y: self.imageView.frame.midY + 3 + self.badgeOffset.vertical,
+                                  width: badgeSize.width,
+                                  height: badgeSize.height)
+            } else {
+                bv.frame = CGRect(x: w / 2.0 + self.badgeOffset.horizontal,
+                                  y: h / 2.0 + self.badgeOffset.vertical,
+                                  width: badgeSize.width,
+                                  height: badgeSize.height)
+            }
         }
     }
 }

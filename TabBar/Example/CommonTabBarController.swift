@@ -7,6 +7,9 @@
 
 import UIKit
 
+class _BadgeButton: UIButton {
+    
+}
 
 class _TabBarItemContainerView: GLTabBarItemContainerView {
     override init() {
@@ -81,35 +84,50 @@ class CommonTabBarController: GLTabBarController {
         self.viewControllers = [navi1, navi2, navi3, navi4]
         self.selectedIndex = 1 // 默认选中第2个(如果不设置`selectedIndex`，默认选中第一个)
         
-        self.tabBar.isTranslucent = false
-        self.tabBar.barTintColor = UIColor.magenta
+        //self.tabBar.isTranslucent = false
+        //self.tabBar.barTintColor = UIColor.magenta
         
         if let tabBar = self.tabBar as? GLTabBar {
             tabBar.inset = UIEdgeInsets(top: 0, left: 0, bottom: UIDevice.gl_isNotchiPhone ? 34.0 : 0.0, right: 0)
         }
         
         //
-        self.quanquanItemContainerView.badgeView.badgeValue = ""
+        self.quanquanItemContainerView.defaultBadgeView.badgeValue = ""
         
         
         //
-        self.tantanItemContainerView.badgeView.badgeValue = "20"
+        self.tantanItemContainerView.defaultBadgeView.badgeValue = "20"
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.tantanItemContainerView.badgeView.badgeValue = "" // 修改角标为小圆点
-            self.tantanItemContainerView.badgeView.dotSize = CGSize(width: 16.0, height: 16.0) // 修改角标小圆点尺寸
+            self.tantanItemContainerView.defaultBadgeView.badgeValue = "" // 修改角标为小圆点
+            self.tantanItemContainerView.defaultBadgeView.dotSize = CGSize(width: 16.0, height: 16.0) // 修改角标小圆点尺寸
         }
         
         //
-        self.messageeItemContainerView.badgeView.badgeValue = "66"
-        self.messageeItemContainerView.badgeView.badgeColor = UIColor.purple // 修改角标背景颜色
-        self.messageeItemContainerView.badgeView.badgeBorderWidth = 2.0 // 修改角标边框宽度
-        self.messageeItemContainerView.badgeView.badgeBorderColor = UIColor.cyan // 修改角标边框颜色
+        self.messageeItemContainerView.defaultBadgeView.badgeValue = "66"
+        self.messageeItemContainerView.defaultBadgeView.badgeColor = UIColor.purple // 修改角标背景颜色
+        self.messageeItemContainerView.defaultBadgeView.badgeBorderWidth = 2.0 // 修改角标边框宽度
+        self.messageeItemContainerView.defaultBadgeView.badgeBorderColor = UIColor.cyan // 修改角标边框颜色
         
         //
-        self.meItemContainerView.badgeView.badgeValue = "99"
-        self.meItemContainerView.badgeView.badgeHeight = 12.0 // 修改角标高度
-        self.meItemContainerView.badgeView.badgeContentFont = UIFont.systemFont(ofSize: 10) // 修改角标字体
-        self.meItemContainerView.badgeView.incrementWidth = 5.0 // 修改增量宽度
+        self.meItemContainerView.defaultBadgeView.badgeValue = "99"
+        self.meItemContainerView.defaultBadgeView.badgeHeight = 12.0 // 修改角标高度
+        self.meItemContainerView.defaultBadgeView.badgeContentFont = UIFont.systemFont(ofSize: 10) // 修改角标字体
+        self.meItemContainerView.defaultBadgeView.incrementWidth = 5.0 // 修改增量宽度
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.tabBarHeight = 250.0 // 延迟3秒改变TabBar高度
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            let badgeButton = UIButton(type: .custom)
+            badgeButton.setTitle("自定义badge", for: .normal)
+            badgeButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+            badgeButton.backgroundColor = .purple
+            self.quanquanItemContainerView.badgeView = badgeButton
+            let beforeOffset = self.meItemContainerView.badgeOffset
+            self.quanquanItemContainerView.badgeOffset = UIOffset(horizontal: beforeOffset.horizontal, vertical: -50)
+        }
+        
     }
 
 }

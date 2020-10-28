@@ -33,7 +33,6 @@ internal class _GLTabBarItemWrapView: UIControl {
             if let subView = subView as? GLTabBarItemContainerView {
                 let inset = subView.insets
                 subView.frame = CGRect(x: inset.left, y: inset.top, width: bounds.size.width - inset.left - inset.right, height: bounds.size.height - inset.top - inset.bottom)
-                subView.updateLayout()
             }
         }
     }

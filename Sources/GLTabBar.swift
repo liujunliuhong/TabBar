@@ -26,11 +26,11 @@ public class GLTabBar: UITabBar {
     /// 偏移量，影响所有item
     public var inset: UIEdgeInsets = .zero
     
+    /// tabBar顶部那条线的颜色
     public var shadowColor: UIColor? {
         didSet {
             self.setNeedsLayout()
             self.layoutIfNeeded()
-            self.updateShadowColor(view: self)
         }
     }
     
@@ -64,6 +64,8 @@ public class GLTabBar: UITabBar {
         super.layoutSubviews()
         //
         self.updateLayout()
+        //
+        self.updateShadowColor(view: self)
     }
     
     public override func value(forUndefinedKey key: String) -> Any? {
@@ -83,24 +85,13 @@ public class GLTabBar: UITabBar {
     }
 }
 
-fileprivate extension GLTabBar {
-    func updateShadowColor(view: UIView) {
+extension GLTabBar {
+    private func updateShadowColor(view: UIView) {
         for (_, v) in view.subviews.enumerated() {
-            if v.frame.height.isLessThanOrEqualTo(1.0) {
+            if v.frame.height.isLessThanOrEqualTo(1.0) && v.isKind(of: UIImageView.classForCoder()) {
                 v.backgroundColor = self.shadowColor
-                if let c = self.shadowColor {
-                    if c == UIColor.clear {
-                        v.isHidden = true
-                    } else {
-                        v.isHidden = false
-                    }
-                } else {
-                    v.isHidden = true
-                }
             } else {
-                if v.subviews.count > 0 {
-                    self.updateShadowColor(view: v)
-                }
+                self.updateShadowColor(view: v)
             }
         }
     }
