@@ -26,6 +26,8 @@
 		8588D8E4254866120052521F /* Navi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8E3254866120052521F /* Navi.swift */; };
 		8588D8E72548668E0052521F /* CommonTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8E62548668E0052521F /* CommonTabBarController.swift */; };
 		8588D8EC25486ABE0052521F /* UIDevice+GLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8EB25486ABE0052521F /* UIDevice+GLExtension.swift */; };
+		F9CF0B49254AC97A00CB19AE /* DynamicHeightTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF0B48254AC97A00CB19AE /* DynamicHeightTabBarController.swift */; };
+		F9CF0B4D254ACA1300CB19AE /* DynamicHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF0B4C254ACA1300CB19AE /* DynamicHeightViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		8588D8E3254866120052521F /* Navi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navi.swift; sourceTree = "<group>"; };
 		8588D8E62548668E0052521F /* CommonTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTabBarController.swift; sourceTree = "<group>"; };
 		8588D8EB25486ABE0052521F /* UIDevice+GLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+GLExtension.swift"; sourceTree = "<group>"; };
+		F9CF0B48254AC97A00CB19AE /* DynamicHeightTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightTabBarController.swift; sourceTree = "<group>"; };
+		F9CF0B4C254ACA1300CB19AE /* DynamicHeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				8588D8E62548668E0052521F /* CommonTabBarController.swift */,
+				F9CF0B47254AC95400CB19AE /* DynamicHeight */,
 				8588D8D2254865B90052521F /* ViewControllers */,
 			);
 			path = Example;
@@ -128,6 +133,15 @@
 				8588D8E3254866120052521F /* Navi.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F9CF0B47254AC95400CB19AE /* DynamicHeight */ = {
+			isa = PBXGroup;
+			children = (
+				F9CF0B48254AC97A00CB19AE /* DynamicHeightTabBarController.swift */,
+				F9CF0B4C254ACA1300CB19AE /* DynamicHeightViewController.swift */,
+			);
+			path = DynamicHeight;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,8 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9CF0B49254AC97A00CB19AE /* DynamicHeightTabBarController.swift in Sources */,
 				8588D8D4254865D50052521F /* VC1.swift in Sources */,
 				8588D8C92548647B0052521F /* GLTabBar.swift in Sources */,
+				F9CF0B4D254ACA1300CB19AE /* DynamicHeightViewController.swift in Sources */,
 				8588D8DB254865E80052521F /* VC3.swift in Sources */,
 				8588D8AF254863DD0052521F /* ViewController.swift in Sources */,
 				8588D8CB2548647B0052521F /* GLTabBarController.swift in Sources */,

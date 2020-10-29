@@ -32,7 +32,11 @@ internal class _GLTabBarItemWrapView: UIControl {
         for subView in subviews {
             if let subView = subView as? GLTabBarItemContainerView {
                 let inset = subView.insets
-                subView.frame = CGRect(x: inset.left, y: inset.top, width: bounds.size.width - inset.left - inset.right, height: bounds.size.height - inset.top - inset.bottom)
+                // 设置frame，将触发`GLTabBarItemContainerView`的`layoutSubviews`方法
+                subView.frame = CGRect(x: inset.left,
+                                       y: inset.top,
+                                       width: bounds.size.width - inset.left - inset.right,
+                                       height: bounds.size.height - inset.top - inset.bottom)
             }
         }
     }

@@ -14,6 +14,12 @@ internal protocol GLTabBarDelegate: NSObjectProtocol {
     func tabBar(_ tabBar: GLTabBar, didHijack item: UITabBarItem)
 }
 
+/// item布局方式
+public enum GLTabBarItemLayoutType {
+    case system   // 根据系统item尺寸来设置
+    case fillUp   // 填充满
+}
+
 public class GLTabBar: UITabBar {
 
     internal weak var _tabBarelegate: GLTabBarDelegate?
@@ -23,10 +29,16 @@ public class GLTabBar: UITabBar {
     private let baseTag: Int = 1000
     private var wrapViews: [_GLTabBarItemWrapView] = []
     
-    /// 偏移量，影响所有item
-    public var inset: UIEdgeInsets = .zero
     
-    /// tabBar顶部那条线的颜色
+    /// 偏移量，影响所有item。当`layoutType`为`fillUp`时有效
+    public var inset: UIEdgeInsets = .zero {
+        didSet {
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
+        }
+    }
+    
+    /// 分割线的颜色
     public var shadowColor: UIColor? {
         didSet {
             self.setNeedsLayout()
@@ -34,18 +46,21 @@ public class GLTabBar: UITabBar {
         }
     }
     
+    /// 设置items，由系统调用，开发者最好不要手动设置该属性
     public override var items: [UITabBarItem]? {
         didSet {
             self.updateDisplay()
         }
     }
     
-    /// item之间的间距
-    public override var itemSpacing: CGFloat {
+    /// 布局方式
+    public var layoutType: GLTabBarItemLayoutType = .system {
         didSet {
-            self.updateDisplay()
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
         }
     }
+    
     
     public override func setItems(_ items: [UITabBarItem]?, animated: Bool) {
         super.setItems(items, animated: animated)
@@ -88,8 +103,9 @@ public class GLTabBar: UITabBar {
 extension GLTabBar {
     private func updateShadowColor(view: UIView) {
         for (_, v) in view.subviews.enumerated() {
-            if v.frame.height.isLessThanOrEqualTo(1.0) && v.isKind(of: UIImageView.classForCoder()) {
+            if NSStringFromClass(v.classForCoder) == "_UIBarBackgroundShadowView" {
                 v.backgroundColor = self.shadowColor
+                break
             } else {
                 self.updateShadowColor(view: v)
             }
@@ -118,6 +134,7 @@ extension GLTabBar {
             self.addSubview(wrapView)
             self.wrapViews.append(wrapView)
             if let item = item as? GLTabBarItem, let containerView = item.containerView {
+                item.tabBar = self
                 wrapView.addSubview(containerView)
             }
         }
@@ -137,7 +154,7 @@ extension GLTabBar {
         }
         // Obtain the tabBarButton of the system. If the system is upgraded, and Apple changes the attributes or the hierarchy, the custom tabBar may fail.
         let originTabBarButtons = subviews.filter { (subView) -> Bool in
-            if let cls = NSClassFromString("UITabBarButton") {
+            if let cls = NSClassFromString("UITabBarButton") { // 获取系统button
                 return subView.isKind(of: cls)
             }
             return false
@@ -152,25 +169,55 @@ extension GLTabBar {
             return
         }
         //
+        var buttons: [UIView] = [] /* 包含系统`tabBar`按钮和`_GLTabBarItemWrapView` */
         for (index, item) in tabBarItems.enumerated() {
+            let wrapView = self.wrapViews[index]
+            let sysButton = originTabBarButtons[index]
             if let _ = item as? GLTabBarItem {
-                originTabBarButtons[index].isHidden = true
-                self.wrapViews[index].isHidden = false
+                sysButton.isHidden = true
+                wrapView.isHidden = false
+                buttons.append(wrapView)
             } else {
-                originTabBarButtons[index].isHidden = false
-                self.wrapViews[index].isHidden = true
+                sysButton.isHidden = false
+                wrapView.isHidden = true
+                buttons.append(sysButton)
             }
         }
-        var x: CGFloat = self.inset.left
-        let y: CGFloat = self.inset.top
-        let width = self.bounds.size.width - self.inset.left - self.inset.right
-        let eachHeight = self.bounds.size.height - self.inset.top - self.inset.bottom
-        let eachWidth = width / CGFloat(self.wrapViews.count)
-        let spacing = self.itemSpacing.isLessThanOrEqualTo(.zero) ? .zero : self.itemSpacing
-        for v in self.wrapViews {
-            v.frame = CGRect(x: x, y: y, width: eachWidth, height: eachHeight) // 最终将调用`GLTabBarItemContainerView`的`updateLayout`方法
-            x += eachWidth
-            x += spacing
+        if buttons.count != tabBarItems.count {
+            return
+        }
+        //
+        if self.layoutType == .fillUp { /* fillUp */
+            var x: CGFloat = self.inset.left
+            let y: CGFloat = self.inset.top
+            
+            var sumCustomWidth: CGFloat = .zero
+            var customCount: Int = 0
+            for (i, _) in buttons.enumerated() {
+                if let item = tabBarItems[i] as? GLTabBarItem, let w = item.itemWidth, !w.isLessThanOrEqualTo(.zero) {
+                    sumCustomWidth += w
+                    customCount += 1
+                }
+            }
+            var regularWidth: CGFloat = .zero // 标准宽度
+            if customCount < buttons.count {
+                regularWidth = (self.bounds.size.width - self.inset.left - self.inset.right - sumCustomWidth) / CGFloat(tabBarItems.count - customCount)
+            }
+            let regularHeight = self.bounds.size.height - self.inset.top - self.inset.bottom // 标准高度
+            
+            for (i, v) in buttons.enumerated() {
+                if let item = tabBarItems[i] as? GLTabBarItem, let w = item.itemWidth, !w.isLessThanOrEqualTo(.zero) {
+                    v.frame = CGRect(x: x, y: y, width: w, height: regularHeight)
+                    x += w
+                } else {
+                    v.frame = CGRect(x: x, y: y, width: regularWidth, height: regularHeight)
+                    x += regularWidth
+                }
+            }
+        } else { /* system */
+            for (index, w) in buttons.enumerated() {
+                w.frame = originTabBarButtons[index].frame
+            }
         }
     }
 }

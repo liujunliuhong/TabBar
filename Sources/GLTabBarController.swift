@@ -81,14 +81,22 @@ open class GLTabBarController: UITabBarController {
     /// 设置`tabBar`的高度
     public var tabBarHeight: CGFloat? {
         didSet {
-            if let _tabBarHeight = self.tabBarHeight, !_tabBarHeight.isLessThanOrEqualTo(.zero) {
+            if let _ = self.tabBarHeight {
                 self.view.setNeedsLayout()
                 self.view.layoutIfNeeded()
             }
         }
     }
     
-    fileprivate var shouldNext: Bool = true
+    /// 是否隐藏`tabBar`
+    public var hideTabBar: Bool = false {
+        didSet {
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private var shouldNext: Bool = true
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,18 +114,27 @@ open class GLTabBarController: UITabBarController {
             self.selectedIndex = idx // 避免无限循环
             self.delegate?.tabBarController?(self, didSelect: vc)
         }
-        
-        
     }
     
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if let _tabBarHeight = self.tabBarHeight, !_tabBarHeight.isLessThanOrEqualTo(.zero) {
+        if let _tabBarHeight = self.tabBarHeight {
             var frame = self.tabBar.frame
             let beforeHeight: CGFloat = frame.size.height
             frame.size.height = _tabBarHeight
             frame.origin.y = frame.origin.y - (_tabBarHeight - beforeHeight)
             self.tabBar.frame = frame
+        }
+        if self.hideTabBar {
+            var frame = self.tabBar.frame
+            frame.origin.y = UIScreen.main.bounds.height
+            self.tabBar.frame = frame
+            self.tabBar.isHidden = true
+        } else {
+            var frame = self.tabBar.frame
+            frame.origin.y = UIScreen.main.bounds.height - frame.height
+            self.tabBar.frame = frame
+            self.tabBar.isHidden = false
         }
     }
     

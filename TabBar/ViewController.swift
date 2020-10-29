@@ -7,10 +7,12 @@
 
 import UIKit
 
-class Model {
+class Model{
+    let cls: AnyClass
     let title: String?
-    init(title: String?) {
+    init(title: String?, cls: AnyClass) {
         self.title = title
+        self.cls = cls
     }
 }
 
@@ -42,7 +44,7 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
         self.tableView.frame = self.view.bounds
         
-        let model1 = Model(title: "普通TabBar")
+        let model1 = Model(title: "动态修改TabBar高度", cls: DynamicHeightTabBarController.classForCoder())
         self.dataSource = [model1]
         self.tableView.reloadData()
     }
@@ -66,10 +68,12 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 0 {
-            let tabBarVC = CommonTabBarController()
-            tabBarVC.modalPresentationStyle = .fullScreen
-            self.present(tabBarVC, animated: true, completion: nil)
+        let model = self.dataSource[indexPath.row]
+        guard let cls = model.cls as? UIViewController.Type else {
+            return
         }
+        let vc = cls.init()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }

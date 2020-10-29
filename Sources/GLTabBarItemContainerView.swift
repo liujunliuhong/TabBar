@@ -144,7 +144,7 @@ open class GLTabBarItemContainerView: UIView {
         set {
             _badgeView?.removeFromSuperview()
             _badgeView = newValue
-            if _badgeView != nil {
+            if newValue != nil {
                 self.addSubview(newValue!)
             }
             if let _b = newValue as? GLTabBarBadgeView {
@@ -220,7 +220,7 @@ extension GLTabBarItemContainerView {
         self.badgeView = self.defaultBadgeView // 使用默认的badgeView
     }
     
-    private func updateDisplay() {
+    internal func updateDisplay() {
         self.superview?.backgroundColor = self.isSelected ? self.selectedBackgroundColor : self.normalBackgroundColor
         self.imageView.image = (self.isSelected ? (self.selectedImage ?? self.normalImage) : self.normalImage)?.withRenderingMode(self.iconRenderingMode)
         self.imageView.tintColor = self.isSelected ? self.selectedIconColor : self.normalIconColor

@@ -7,9 +7,6 @@
 
 import UIKit
 
-class _BadgeButton: UIButton {
-    
-}
 
 class _TabBarItemContainerView: GLTabBarItemContainerView {
     override init() {
@@ -58,6 +55,11 @@ class CommonTabBarController: GLTabBarController {
         return meItemContainerView
     }()
     
+    lazy var systemItem: UITabBarItem = {
+        let systemItem = UITabBarItem(title: "系统", image: UIImage(named: "system_tab_normal")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "system_tab_select")?.withRenderingMode(.alwaysOriginal))
+        return systemItem
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -71,33 +73,37 @@ class CommonTabBarController: GLTabBarController {
         let vc2 = VC2()
         let vc3 = VC3()
         let vc4 = VC4()
+        let vc5 = VC5()
         let navi1 = Navi(rootViewController: vc1)
         let navi2 = Navi(rootViewController: vc2)
         let navi3 = Navi(rootViewController: vc3)
         let navi4 = Navi(rootViewController: vc4)
+        let navi5 = Navi(rootViewController: vc5)
         
         navi1.tabBarItem = quanquanItem
         navi2.tabBarItem = tantanItem
         navi3.tabBarItem = messageItem
         navi4.tabBarItem = meItem
+        navi5.tabBarItem = self.systemItem
         
-        self.viewControllers = [navi1, navi2, navi3, navi4]
+        self.viewControllers = [navi1, navi2, navi3, navi4, navi5]
         self.selectedIndex = 1 // 默认选中第2个(如果不设置`selectedIndex`，默认选中第一个)
         
         //self.tabBar.isTranslucent = false
         //self.tabBar.barTintColor = UIColor.magenta
         
         if let tabBar = self.tabBar as? GLTabBar {
+            tabBar.layoutType = .fillUp
             tabBar.inset = UIEdgeInsets(top: 0, left: 0, bottom: UIDevice.gl_isNotchiPhone ? 34.0 : 0.0, right: 0)
         }
         
         //
-        self.quanquanItemContainerView.defaultBadgeView.badgeValue = ""
+        self.quanquanItemContainerView.defaultBadgeView.badgeValue = "" // badge为红色小圆点
         
         
         //
         self.tantanItemContainerView.defaultBadgeView.badgeValue = "20"
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // 延迟2s
             self.tantanItemContainerView.defaultBadgeView.badgeValue = "" // 修改角标为小圆点
             self.tantanItemContainerView.defaultBadgeView.dotSize = CGSize(width: 16.0, height: 16.0) // 修改角标小圆点尺寸
         }
@@ -115,17 +121,25 @@ class CommonTabBarController: GLTabBarController {
         self.meItemContainerView.defaultBadgeView.incrementWidth = 5.0 // 修改增量宽度
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.tabBarHeight = 250.0 // 延迟3秒改变TabBar高度
+            //self.tabBarHeight = 0.0 // 延迟3秒改变TabBar高度
+            self.tabBarHeight = 150.0
+            
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            let badgeButton = UIButton(type: .custom)
-            badgeButton.setTitle("自定义badge", for: .normal)
-            badgeButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-            badgeButton.backgroundColor = .purple
-            self.quanquanItemContainerView.badgeView = badgeButton
-            let beforeOffset = self.meItemContainerView.badgeOffset
-            self.quanquanItemContainerView.badgeOffset = UIOffset(horizontal: beforeOffset.horizontal, vertical: -50)
+            self.hideTabBar = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.hideTabBar = false
+            }
+//            let badgeButton = UIButton(type: .custom)
+//            badgeButton.setTitle("自定义badge", for: .normal)
+//            badgeButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+//            badgeButton.backgroundColor = .purple
+//            self.quanquanItemContainerView.badgeView = badgeButton // 设置自定义badgeView
+//            let beforeOffset = self.meItemContainerView.badgeOffset
+//            self.quanquanItemContainerView.badgeOffset = UIOffset(horizontal: beforeOffset.horizontal, vertical: -50) // 设置badgeView的偏移量
+//
+//            messageItem.itemWidth = 20.0
         }
         
     }
