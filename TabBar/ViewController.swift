@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Model{
+fileprivate class Model{
     let cls: AnyClass
     let title: String?
     init(title: String?, cls: AnyClass) {
@@ -18,9 +18,9 @@ class Model{
 
 
 
-class ViewController: UIViewController {
-
-    lazy var tableView: UITableView = {
+public class ViewController: UIViewController {
+    
+    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,9 +28,9 @@ class ViewController: UIViewController {
         return tableView
     }()
     
-    var dataSource: [Model] = []
+    private var dataSource: [Model] = []
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         if #available(iOS 11.0, *) {
@@ -39,25 +39,30 @@ class ViewController: UIViewController {
             self.automaticallyAdjustsScrollViewInsets = true
         }
         self.view.addSubview(self.tableView)
-    }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.tableView.frame = self.view.bounds
         
         let model1 = Model(title: "动态修改TabBar高度", cls: DynamicHeightTabBarController.classForCoder())
-        self.dataSource = [model1]
+        let model2 = Model(title: "badge的各种样式", cls: BadgeTabBarController.classForCoder())
+        let model3 = Model(title: "GLTabBarItem 和 UITabBarItem 混合使用", cls: MixTabBarController.classForCoder())
+        let model4 = Model(title: "动态修改item宽度", cls: DynamicWidthTabBarController.classForCoder())
+        let model5 = Model(title: "拦截点击事件(index=1的item将被拦截)", cls: HijackTabBarController.classForCoder())
+        let model6 = Model(title: "显示或者隐藏tabbar", cls: HideOrShowTabBarController.classForCoder())
+        self.dataSource = [model1, model2, model3, model4, model5, model6]
         self.tableView.reloadData()
+    }
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.tableView.frame = self.view.bounds
     }
 }
 
 extension ViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.classForCoder()))
         let model = self.dataSource[indexPath.row]
         cell?.textLabel?.text = model.title
@@ -66,7 +71,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let model = self.dataSource[indexPath.row]
         guard let cls = model.cls as? UIViewController.Type else {

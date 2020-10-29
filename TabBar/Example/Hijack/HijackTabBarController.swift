@@ -1,5 +1,5 @@
 //
-//  DynamicHeightTabBarController.swift
+//  HijackTabBarController.swift
 //  TabBar
 //
 //  Created by galaxy on 2020/10/29.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class DynamicHeightTabBarController: GLTabBarController {
+public class HijackTabBarController: GLTabBarController {
     deinit {
         print("\(NSStringFromClass(self.classForCoder)) deinit")
     }
@@ -46,18 +46,16 @@ public class DynamicHeightTabBarController: GLTabBarController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         
         let quanquanItem = GLTabBarItem(containerView: self.quanquanItemContainerView)
         let tantanItem = GLTabBarItem(containerView: self.tantanItemContainerView)
         let messageItem = GLTabBarItem(containerView: self.messageeItemContainerView)
         let meItem = GLTabBarItem(containerView: self.meItemContainerView)
         
-        let vc1 = DynamicHeightViewController()
-        let vc2 = DynamicHeightViewController()
-        let vc3 = DynamicHeightViewController()
-        let vc4 = DynamicHeightViewController()
+        let vc1 = HijackViewController()
+        let vc2 = HijackViewController()
+        let vc3 = HijackViewController()
+        let vc4 = HijackViewController()
         let navi1 = Navi(rootViewController: vc1)
         let navi2 = Navi(rootViewController: vc2)
         let navi3 = Navi(rootViewController: vc3)
@@ -70,5 +68,14 @@ public class DynamicHeightTabBarController: GLTabBarController {
         
         self.viewControllers = [navi1, navi2, navi3, navi4]
         
+        self.canHijackHandler = { (_, _, index) -> Bool in
+            if index == 1 {
+                return true
+            }
+            return false
+        }
+        self.didHijackHandler = { (_, _, index) in
+            print("索引为\(index)的item的点击事件被拦截")
+        }
     }
 }

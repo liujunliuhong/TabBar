@@ -100,7 +100,6 @@ class CommonTabBarController: GLTabBarController {
         //
         self.quanquanItemContainerView.defaultBadgeView.badgeValue = "" // badge为红色小圆点
         
-        
         //
         self.tantanItemContainerView.defaultBadgeView.badgeValue = "20"
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // 延迟2s

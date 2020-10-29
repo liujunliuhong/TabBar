@@ -21,6 +21,7 @@ ESTabBarController](https://github.com/eggswift/ESTabBarController)，在此基�
 
 # 注意事项
 - 框架支持的`item`数量不能大于5个
+- `GLTabBarItem`虽然继承自`UITabBarItem`，但是舍弃了`UITabBarItem`的很多属性，请尽量不要设置`UITabBarItem`的属性，尽量使用`GLTabBarItemContainerView`
 
 # 更新记录(倒叙)
 

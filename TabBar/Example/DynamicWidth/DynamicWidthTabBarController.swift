@@ -1,5 +1,5 @@
 //
-//  DynamicHeightTabBarController.swift
+//  DynamicWidthTabBarController.swift
 //  TabBar
 //
 //  Created by galaxy on 2020/10/29.
@@ -7,7 +7,8 @@
 
 import UIKit
 
-public class DynamicHeightTabBarController: GLTabBarController {
+public class DynamicWidthTabBarController: GLTabBarController {
+
     deinit {
         print("\(NSStringFromClass(self.classForCoder)) deinit")
     }
@@ -47,17 +48,18 @@ public class DynamicHeightTabBarController: GLTabBarController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        let myTabBar = self.tabBar as? GLTabBar
+        myTabBar?.layoutType = .fillUp // 要修改item的宽度，需要把layoutType设置为fill
         
         let quanquanItem = GLTabBarItem(containerView: self.quanquanItemContainerView)
         let tantanItem = GLTabBarItem(containerView: self.tantanItemContainerView)
         let messageItem = GLTabBarItem(containerView: self.messageeItemContainerView)
         let meItem = GLTabBarItem(containerView: self.meItemContainerView)
         
-        let vc1 = DynamicHeightViewController()
-        let vc2 = DynamicHeightViewController()
-        let vc3 = DynamicHeightViewController()
-        let vc4 = DynamicHeightViewController()
+        let vc1 = DynamicWidthViewController()
+        let vc2 = DynamicWidthViewController()
+        let vc3 = DynamicWidthViewController()
+        let vc4 = DynamicWidthViewController()
         let navi1 = Navi(rootViewController: vc1)
         let navi2 = Navi(rootViewController: vc2)
         let navi3 = Navi(rootViewController: vc3)
@@ -71,4 +73,5 @@ public class DynamicHeightTabBarController: GLTabBarController {
         self.viewControllers = [navi1, navi2, navi3, navi4]
         
     }
+
 }

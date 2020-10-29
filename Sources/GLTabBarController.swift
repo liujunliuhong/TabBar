@@ -101,7 +101,6 @@ open class GLTabBarController: UITabBarController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         let tabBar = GLTabBar()
-        tabBar.shadowColor = .blue
         tabBar._tabBarelegate = self
         self.setValue(tabBar, forKey: "tabBar")
         

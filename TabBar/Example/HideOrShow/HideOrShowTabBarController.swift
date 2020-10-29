@@ -1,5 +1,5 @@
 //
-//  DynamicHeightTabBarController.swift
+//  HideOrShowTabBarController.swift
 //  TabBar
 //
 //  Created by galaxy on 2020/10/29.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class DynamicHeightTabBarController: GLTabBarController {
+public class HideOrShowTabBarController: GLTabBarController {
     deinit {
         print("\(NSStringFromClass(self.classForCoder)) deinit")
     }
@@ -46,18 +46,18 @@ public class DynamicHeightTabBarController: GLTabBarController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        self.tabBar.isTranslucent = false
         
         let quanquanItem = GLTabBarItem(containerView: self.quanquanItemContainerView)
         let tantanItem = GLTabBarItem(containerView: self.tantanItemContainerView)
         let messageItem = GLTabBarItem(containerView: self.messageeItemContainerView)
         let meItem = GLTabBarItem(containerView: self.meItemContainerView)
         
-        let vc1 = DynamicHeightViewController()
-        let vc2 = DynamicHeightViewController()
-        let vc3 = DynamicHeightViewController()
-        let vc4 = DynamicHeightViewController()
+        let vc1 = HideOrShowViewController()
+        let vc2 = HideOrShowViewController()
+        let vc3 = HideOrShowViewController()
+        let vc4 = HideOrShowViewController()
         let navi1 = Navi(rootViewController: vc1)
         let navi2 = Navi(rootViewController: vc2)
         let navi3 = Navi(rootViewController: vc3)
@@ -69,6 +69,5 @@ public class DynamicHeightTabBarController: GLTabBarController {
         navi4.tabBarItem = meItem
         
         self.viewControllers = [navi1, navi2, navi3, navi4]
-        
     }
 }

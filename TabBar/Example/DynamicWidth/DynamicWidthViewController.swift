@@ -1,5 +1,5 @@
 //
-//  DynamicHeightViewController.swift
+//  DynamicWidthViewController.swift
 //  TabBar
 //
 //  Created by galaxy on 2020/10/29.
@@ -7,7 +7,8 @@
 
 import UIKit
 
-public class DynamicHeightViewController: UIViewController {
+
+public class DynamicWidthViewController: UIViewController {
 
     lazy var button: UIButton = {
         let button = UIButton(type: .custom)
@@ -22,7 +23,7 @@ public class DynamicHeightViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissAction))
-        self.navigationItem.title = "动态改变tabBar高度"
+        self.navigationItem.title = "动态改变item宽度"
         
         self.view.addSubview(self.button)
         
@@ -39,10 +40,10 @@ public class DynamicHeightViewController: UIViewController {
     }
     
     @objc private func buttonClickAction() {
-        let heights: [CGFloat] = [60, 70, 80, 90, 100, 120, 130]
-        let index = arc4random() % UInt32(heights.count)
-        let height = heights[Int(index)]
-        let tabBarVC = self.tabBarController as? GLTabBarController
-        tabBarVC?.tabBarHeight = height /// 高度如果比较大，会使图片和文字之间的间距增加，若要进行矫正，可以修改`GLTabBarItemContainerView`的`insets`属性
+        let widths: [CGFloat] = [60, 70, 80, 90]
+        let index = arc4random() % UInt32(widths.count)
+        let width = widths[Int(index)]
+        let item = self.navigationController?.tabBarItem as? GLTabBarItem
+        item?.itemWidth = width
     }
 }

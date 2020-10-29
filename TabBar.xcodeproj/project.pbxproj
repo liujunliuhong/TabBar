@@ -3,10 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		852F267C254AFA8600BB0B8C /* BadgeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F267B254AFA8600BB0B8C /* BadgeTabBarController.swift */; };
+		852F2680254AFB1200BB0B8C /* BadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F267F254AFB1200BB0B8C /* BadgeViewController.swift */; };
+		852F2684254B074000BB0B8C /* MixTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F2683254B074000BB0B8C /* MixTabBarController.swift */; };
+		852F2688254B077A00BB0B8C /* MixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F2687254B077A00BB0B8C /* MixViewController.swift */; };
+		852F268C254B096B00BB0B8C /* DynamicWidthTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F268B254B096B00BB0B8C /* DynamicWidthTabBarController.swift */; };
+		852F2690254B097D00BB0B8C /* DynamicWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F268F254B097D00BB0B8C /* DynamicWidthViewController.swift */; };
+		852F2694254B0CE200BB0B8C /* HijackTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F2693254B0CE200BB0B8C /* HijackTabBarController.swift */; };
+		852F2698254B0CED00BB0B8C /* HijackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F2697254B0CED00BB0B8C /* HijackViewController.swift */; };
+		852F269C254B0EEB00BB0B8C /* HideOrShowTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F269B254B0EEB00BB0B8C /* HideOrShowTabBarController.swift */; };
+		852F26A0254B0F0100BB0B8C /* HideOrShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F269F254B0F0100BB0B8C /* HideOrShowViewController.swift */; };
+		852F26AE254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F26AD254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift */; };
 		8588D8AB254863DD0052521F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8AA254863DD0052521F /* AppDelegate.swift */; };
 		8588D8AF254863DD0052521F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8AE254863DD0052521F /* ViewController.swift */; };
 		8588D8B2254863DD0052521F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8588D8B0254863DD0052521F /* Main.storyboard */; };
@@ -26,11 +37,24 @@
 		8588D8E4254866120052521F /* Navi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8E3254866120052521F /* Navi.swift */; };
 		8588D8E72548668E0052521F /* CommonTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8E62548668E0052521F /* CommonTabBarController.swift */; };
 		8588D8EC25486ABE0052521F /* UIDevice+GLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8EB25486ABE0052521F /* UIDevice+GLExtension.swift */; };
+		9E3005770676F1449B972F50 /* Pods_TabBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC7F21016579F9EB0199BE6 /* Pods_TabBar.framework */; };
 		F9CF0B49254AC97A00CB19AE /* DynamicHeightTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF0B48254AC97A00CB19AE /* DynamicHeightTabBarController.swift */; };
 		F9CF0B4D254ACA1300CB19AE /* DynamicHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF0B4C254ACA1300CB19AE /* DynamicHeightViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6495CC251BF0732079FF6881 /* Pods-TabBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabBar.debug.xcconfig"; path = "Target Support Files/Pods-TabBar/Pods-TabBar.debug.xcconfig"; sourceTree = "<group>"; };
+		852F267B254AFA8600BB0B8C /* BadgeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeTabBarController.swift; sourceTree = "<group>"; };
+		852F267F254AFB1200BB0B8C /* BadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeViewController.swift; sourceTree = "<group>"; };
+		852F2683254B074000BB0B8C /* MixTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixTabBarController.swift; sourceTree = "<group>"; };
+		852F2687254B077A00BB0B8C /* MixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixViewController.swift; sourceTree = "<group>"; };
+		852F268B254B096B00BB0B8C /* DynamicWidthTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicWidthTabBarController.swift; sourceTree = "<group>"; };
+		852F268F254B097D00BB0B8C /* DynamicWidthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicWidthViewController.swift; sourceTree = "<group>"; };
+		852F2693254B0CE200BB0B8C /* HijackTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HijackTabBarController.swift; sourceTree = "<group>"; };
+		852F2697254B0CED00BB0B8C /* HijackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HijackViewController.swift; sourceTree = "<group>"; };
+		852F269B254B0EEB00BB0B8C /* HideOrShowTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideOrShowTabBarController.swift; sourceTree = "<group>"; };
+		852F269F254B0F0100BB0B8C /* HideOrShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideOrShowViewController.swift; sourceTree = "<group>"; };
+		852F26AD254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Irregular_1_TabBarController.swift; sourceTree = "<group>"; };
 		8588D8A7254863DD0052521F /* TabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8588D8AA254863DD0052521F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8588D8AE254863DD0052521F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +76,8 @@
 		8588D8E3254866120052521F /* Navi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navi.swift; sourceTree = "<group>"; };
 		8588D8E62548668E0052521F /* CommonTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTabBarController.swift; sourceTree = "<group>"; };
 		8588D8EB25486ABE0052521F /* UIDevice+GLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+GLExtension.swift"; sourceTree = "<group>"; };
+		BE4CF6BE80B08B8791AE372F /* Pods-TabBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabBar.release.xcconfig"; path = "Target Support Files/Pods-TabBar/Pods-TabBar.release.xcconfig"; sourceTree = "<group>"; };
+		EAC7F21016579F9EB0199BE6 /* Pods_TabBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9CF0B48254AC97A00CB19AE /* DynamicHeightTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightTabBarController.swift; sourceTree = "<group>"; };
 		F9CF0B4C254ACA1300CB19AE /* DynamicHeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,18 +87,74 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E3005770676F1449B972F50 /* Pods_TabBar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		852F267A254AFA6700BB0B8C /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				852F267B254AFA8600BB0B8C /* BadgeTabBarController.swift */,
+				852F267F254AFB1200BB0B8C /* BadgeViewController.swift */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
+		852F2682254B06FC00BB0B8C /* Mix */ = {
+			isa = PBXGroup;
+			children = (
+				852F2683254B074000BB0B8C /* MixTabBarController.swift */,
+				852F2687254B077A00BB0B8C /* MixViewController.swift */,
+			);
+			path = Mix;
+			sourceTree = "<group>";
+		};
+		852F268A254B094300BB0B8C /* DynamicWidth */ = {
+			isa = PBXGroup;
+			children = (
+				852F268B254B096B00BB0B8C /* DynamicWidthTabBarController.swift */,
+				852F268F254B097D00BB0B8C /* DynamicWidthViewController.swift */,
+			);
+			path = DynamicWidth;
+			sourceTree = "<group>";
+		};
+		852F2692254B0CAB00BB0B8C /* Hijack */ = {
+			isa = PBXGroup;
+			children = (
+				852F2693254B0CE200BB0B8C /* HijackTabBarController.swift */,
+				852F2697254B0CED00BB0B8C /* HijackViewController.swift */,
+			);
+			path = Hijack;
+			sourceTree = "<group>";
+		};
+		852F269A254B0ED100BB0B8C /* HideOrShow */ = {
+			isa = PBXGroup;
+			children = (
+				852F269B254B0EEB00BB0B8C /* HideOrShowTabBarController.swift */,
+				852F269F254B0F0100BB0B8C /* HideOrShowViewController.swift */,
+			);
+			path = HideOrShow;
+			sourceTree = "<group>";
+		};
+		852F26A8254B19CB00BB0B8C /* Irregular Item 1 */ = {
+			isa = PBXGroup;
+			children = (
+				852F26AD254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift */,
+			);
+			path = "Irregular Item 1";
+			sourceTree = "<group>";
+		};
 		8588D89E254863DD0052521F = {
 			isa = PBXGroup;
 			children = (
 				8588D8C22548647B0052521F /* Sources */,
 				8588D8A9254863DD0052521F /* TabBar */,
 				8588D8A8254863DD0052521F /* Products */,
+				D78E740794A083199CB9B203 /* Pods */,
+				993BB0645097DE42DD800801 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +198,12 @@
 			isa = PBXGroup;
 			children = (
 				8588D8E62548668E0052521F /* CommonTabBarController.swift */,
+				852F26A8254B19CB00BB0B8C /* Irregular Item 1 */,
+				852F269A254B0ED100BB0B8C /* HideOrShow */,
+				852F2692254B0CAB00BB0B8C /* Hijack */,
+				852F268A254B094300BB0B8C /* DynamicWidth */,
+				852F2682254B06FC00BB0B8C /* Mix */,
+				852F267A254AFA6700BB0B8C /* Badge */,
 				F9CF0B47254AC95400CB19AE /* DynamicHeight */,
 				8588D8D2254865B90052521F /* ViewControllers */,
 			);
@@ -135,6 +223,23 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		993BB0645097DE42DD800801 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAC7F21016579F9EB0199BE6 /* Pods_TabBar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D78E740794A083199CB9B203 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6495CC251BF0732079FF6881 /* Pods-TabBar.debug.xcconfig */,
+				BE4CF6BE80B08B8791AE372F /* Pods-TabBar.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F9CF0B47254AC95400CB19AE /* DynamicHeight */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,9 +256,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8588D8BB254863DD0052521F /* Build configuration list for PBXNativeTarget "TabBar" */;
 			buildPhases = (
+				CB14D93E7D37448895509D7F /* [CP] Check Pods Manifest.lock */,
 				8588D8A3254863DD0052521F /* Sources */,
 				8588D8A4254863DD0052521F /* Frameworks */,
 				8588D8A5254863DD0052521F /* Resources */,
+				2D11F1BE1F34C3D6FF820F7A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,28 +316,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D11F1BE1F34C3D6FF820F7A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TabBar/Pods-TabBar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TabBar/Pods-TabBar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TabBar/Pods-TabBar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB14D93E7D37448895509D7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TabBar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8588D8A3254863DD0052521F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F9CF0B49254AC97A00CB19AE /* DynamicHeightTabBarController.swift in Sources */,
+				852F268C254B096B00BB0B8C /* DynamicWidthTabBarController.swift in Sources */,
+				852F269C254B0EEB00BB0B8C /* HideOrShowTabBarController.swift in Sources */,
 				8588D8D4254865D50052521F /* VC1.swift in Sources */,
 				8588D8C92548647B0052521F /* GLTabBar.swift in Sources */,
 				F9CF0B4D254ACA1300CB19AE /* DynamicHeightViewController.swift in Sources */,
 				8588D8DB254865E80052521F /* VC3.swift in Sources */,
 				8588D8AF254863DD0052521F /* ViewController.swift in Sources */,
+				852F26A0254B0F0100BB0B8C /* HideOrShowViewController.swift in Sources */,
 				8588D8CB2548647B0052521F /* GLTabBarController.swift in Sources */,
 				8588D8E4254866120052521F /* Navi.swift in Sources */,
 				8588D8CE2548647B0052521F /* GLTabBarItem.swift in Sources */,
+				852F2698254B0CED00BB0B8C /* HijackViewController.swift in Sources */,
 				8588D8E72548668E0052521F /* CommonTabBarController.swift in Sources */,
+				852F2680254AFB1200BB0B8C /* BadgeViewController.swift in Sources */,
+				852F2694254B0CE200BB0B8C /* HijackTabBarController.swift in Sources */,
 				8588D8CC2548647B0052521F /* GLTabBarBadgeView.swift in Sources */,
 				8588D8CA2548647B0052521F /* GLTabBarItemContainerView.swift in Sources */,
 				8588D8D8254865DF0052521F /* VC2.swift in Sources */,
 				8588D8DE254865F30052521F /* VC4.swift in Sources */,
+				852F2684254B074000BB0B8C /* MixTabBarController.swift in Sources */,
+				852F26AE254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift in Sources */,
+				852F267C254AFA8600BB0B8C /* BadgeTabBarController.swift in Sources */,
+				852F2688254B077A00BB0B8C /* MixViewController.swift in Sources */,
 				8588D8AB254863DD0052521F /* AppDelegate.swift in Sources */,
 				8588D8CD2548647B0052521F /* _GLTabBarItemWrapView.swift in Sources */,
 				8588D8EC25486ABE0052521F /* UIDevice+GLExtension.swift in Sources */,
+				852F2690254B097D00BB0B8C /* DynamicWidthViewController.swift in Sources */,
 				8588D8E1254865FB0052521F /* VC5.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +535,7 @@
 		};
 		8588D8BC254863DD0052521F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6495CC251BF0732079FF6881 /* Pods-TabBar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -395,6 +556,7 @@
 		};
 		8588D8BD254863DD0052521F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE4CF6BE80B08B8791AE372F /* Pods-TabBar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
