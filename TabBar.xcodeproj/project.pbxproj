@@ -18,6 +18,7 @@
 		852F269C254B0EEB00BB0B8C /* HideOrShowTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F269B254B0EEB00BB0B8C /* HideOrShowTabBarController.swift */; };
 		852F26A0254B0F0100BB0B8C /* HideOrShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F269F254B0F0100BB0B8C /* HideOrShowViewController.swift */; };
 		852F26AE254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F26AD254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift */; };
+		8557CB46254C542A0023D1E5 /* IrregularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8557CB45254C542A0023D1E5 /* IrregularViewController.swift */; };
 		8588D8AB254863DD0052521F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8AA254863DD0052521F /* AppDelegate.swift */; };
 		8588D8AF254863DD0052521F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8AE254863DD0052521F /* ViewController.swift */; };
 		8588D8B2254863DD0052521F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8588D8B0254863DD0052521F /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		852F269B254B0EEB00BB0B8C /* HideOrShowTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideOrShowTabBarController.swift; sourceTree = "<group>"; };
 		852F269F254B0F0100BB0B8C /* HideOrShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideOrShowViewController.swift; sourceTree = "<group>"; };
 		852F26AD254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Irregular_1_TabBarController.swift; sourceTree = "<group>"; };
+		8557CB45254C542A0023D1E5 /* IrregularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrregularViewController.swift; sourceTree = "<group>"; };
 		8588D8A7254863DD0052521F /* TabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8588D8AA254863DD0052521F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8588D8AE254863DD0052521F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				852F26AD254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift */,
+				8557CB45254C542A0023D1E5 /* IrregularViewController.swift */,
 			);
 			path = "Irregular Item 1";
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				8588D8DE254865F30052521F /* VC4.swift in Sources */,
 				852F2684254B074000BB0B8C /* MixTabBarController.swift in Sources */,
 				852F26AE254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift in Sources */,
+				8557CB46254C542A0023D1E5 /* IrregularViewController.swift in Sources */,
 				852F267C254AFA8600BB0B8C /* BadgeTabBarController.swift in Sources */,
 				852F2688254B077A00BB0B8C /* MixViewController.swift in Sources */,
 				8588D8AB254863DD0052521F /* AppDelegate.swift in Sources */,

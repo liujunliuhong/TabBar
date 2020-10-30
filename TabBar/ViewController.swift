@@ -46,7 +46,8 @@ public class ViewController: UIViewController {
         let model4 = Model(title: "动态修改item宽度", cls: DynamicWidthTabBarController.classForCoder())
         let model5 = Model(title: "拦截点击事件(index=1的item将被拦截)", cls: HijackTabBarController.classForCoder())
         let model6 = Model(title: "显示或者隐藏tabbar", cls: HideOrShowTabBarController.classForCoder())
-        self.dataSource = [model1, model2, model3, model4, model5, model6]
+        let model7 = Model(title: "不规则tabbar - 1", cls: Irregular_1_TabBarController.classForCoder())
+        self.dataSource = [model1, model2, model3, model4, model5, model6, model7]
         self.tableView.reloadData()
     }
     public override func viewDidLayoutSubviews() {

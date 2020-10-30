@@ -233,7 +233,7 @@ extension GLTabBarItemContainerView {
 
 
 extension GLTabBarItemContainerView {
-    open func updateLayout() {
+    @objc open func updateLayout() {
         self.imageView.isHidden = (self.imageView.image == nil)
         self.titleLabel.isHidden = (self.titleLabel.text ?? "").count <= 0
         
@@ -339,15 +339,15 @@ extension GLTabBarItemContainerView {
 }
 
 extension GLTabBarItemContainerView {
-    open func select() {
+    @objc open func select() {
         
     }
     
-    open func deselect() {
+    @objc open func deselect() {
         
     }
     
-    open func reselect() {
+    @objc open func reselect() {
         
     }
 }
