@@ -7,7 +7,7 @@ ESTabBarController](https://github.com/eggswift/ESTabBarController)，在此基�
 # 特性
 - 支持修改`tabBar`的高度
 - `badge`样式更加丰富，且可以自定义
-- 支持自定义按钮，可以实现诸如凸起按钮的效果
+- 支持自定义按钮，可以实现诸如凸起按钮的效果，超出边界部分默认可以点击
 - 支持`GLTabBarItem`和`UITabBarItem`混用
 - 可以修改`item`宽度
 - 支持自定义每个按钮的颜色，字体，图片等等

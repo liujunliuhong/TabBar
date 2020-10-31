@@ -13,7 +13,7 @@ public class IrregularViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissAction))
-        self.navigationItem.title = "不规则tabbar - 1"
+        self.navigationItem.title = "不规则tabbar"
     }
     
     @objc private func dismissAction() {

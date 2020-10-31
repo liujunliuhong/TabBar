@@ -20,6 +20,11 @@ public enum GLTabBarItemLayoutType {
     case fillUp   // 填充满
 }
 
+
+private struct GLTabBarAssociatedKeys {
+    static var backgroundLayerKey = "com.galaxy.tabbar.backgroundLayer.key"
+}
+
 public class GLTabBar: UITabBar {
 
     internal weak var _tabBarelegate: GLTabBarDelegate?
@@ -58,6 +63,19 @@ public class GLTabBar: UITabBar {
         didSet {
             self.setNeedsLayout()
             self.layoutIfNeeded()
+        }
+    }
+    
+    public var backgroundLayer: CALayer? {
+        didSet {
+            let beforeBackgroundLayer = objc_getAssociatedObject(self, &GLTabBarAssociatedKeys.backgroundLayerKey) as? CALayer
+            beforeBackgroundLayer?.removeFromSuperlayer()
+            if let backgroundLayer = backgroundLayer {
+                objc_setAssociatedObject(self, &GLTabBarAssociatedKeys.backgroundLayerKey, backgroundColor, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                self.layer.addSublayer(backgroundLayer)
+                self.setNeedsLayout()
+                self.layoutIfNeeded()
+            }
         }
     }
     
@@ -145,6 +163,9 @@ extension GLTabBar {
     
     /// update layout
     internal func updateLayout() {
+        //
+        let backgroundLayer = objc_getAssociatedObject(self, &GLTabBarAssociatedKeys.backgroundLayerKey) as? CALayer
+        backgroundLayer?.frame = self.bounds
         //
         guard let tabBarItems = self.items else {
             return

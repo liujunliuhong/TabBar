@@ -206,6 +206,26 @@ extension GLTabBarItemContainerView {
         super.layoutSubviews()
         self.updateLayout()
     }
+    
+    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        var result: Bool = false
+        for subView in self.subviews {
+            if subView.frame.contains(point) {
+                result = true
+                break
+            }
+        }
+        return result
+        //        var b = super.point(inside: point, with: event)
+        //        if !b {
+        //            for subView in subviews {
+        //                if subView.point(inside: CGPoint(x: point.x - subView.frame.origin.x, y: point.y - subView.frame.origin.y), with: event) {
+        //                    b = true
+        //                }
+        //            }
+        //        }
+        //        return b
+    }
 }
 
 extension GLTabBarItemContainerView {

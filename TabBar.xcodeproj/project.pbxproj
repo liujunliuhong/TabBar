@@ -141,13 +141,13 @@
 			path = HideOrShow;
 			sourceTree = "<group>";
 		};
-		852F26A8254B19CB00BB0B8C /* Irregular Item 1 */ = {
+		852F26A8254B19CB00BB0B8C /* Irregular Item */ = {
 			isa = PBXGroup;
 			children = (
 				852F26AD254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift */,
 				8557CB45254C542A0023D1E5 /* IrregularViewController.swift */,
 			);
-			path = "Irregular Item 1";
+			path = "Irregular Item";
 			sourceTree = "<group>";
 		};
 		8588D89E254863DD0052521F = {
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				8588D8E62548668E0052521F /* CommonTabBarController.swift */,
-				852F26A8254B19CB00BB0B8C /* Irregular Item 1 */,
+				852F26A8254B19CB00BB0B8C /* Irregular Item */,
 				852F269A254B0ED100BB0B8C /* HideOrShow */,
 				852F2692254B0CAB00BB0B8C /* Hijack */,
 				852F268A254B094300BB0B8C /* DynamicWidth */,

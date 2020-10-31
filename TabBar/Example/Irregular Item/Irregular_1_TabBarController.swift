@@ -25,11 +25,6 @@ fileprivate class PlusItemContainerView: GLTabBarItemContainerView {
         self.imageView.center = CGPoint(x: self.bounds.width / 2.0, y: self.bounds.height / 2.0 - 15)
         self.imageView.bounds = CGRect(origin: .zero, size: imageSize)
     }
-    
-    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        let p = CGPoint(x: point.x - imageView.frame.origin.x, y: point.y - imageView.frame.origin.y)
-        return sqrt(pow(imageView.bounds.size.width / 2.0 - p.x, 2) + pow(imageView.bounds.size.height / 2.0 - p.y, 2)) < imageView.bounds.size.width / 2.0
-    }
 }
 
 fileprivate class _PlusViewController: UIViewController {
