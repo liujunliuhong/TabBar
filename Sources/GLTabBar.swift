@@ -22,7 +22,7 @@ public enum GLTabBarItemLayoutType {
 
 
 private struct GLTabBarAssociatedKeys {
-    static var backgroundLayerKey = "com.galaxy.tabbar.backgroundLayer.key"
+    static var backgroundViewKey = "com.galaxy.tabbar.backgroundView.key"
 }
 
 public class GLTabBar: UITabBar {
@@ -66,13 +66,25 @@ public class GLTabBar: UITabBar {
         }
     }
     
-    public var backgroundLayer: CALayer? {
+    /// 背景`View`
+    public var backgroundView: UIView? {
         didSet {
-            let beforeBackgroundLayer = objc_getAssociatedObject(self, &GLTabBarAssociatedKeys.backgroundLayerKey) as? CALayer
-            beforeBackgroundLayer?.removeFromSuperlayer()
-            if let backgroundLayer = backgroundLayer {
-                objc_setAssociatedObject(self, &GLTabBarAssociatedKeys.backgroundLayerKey, backgroundColor, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-                self.layer.addSublayer(backgroundLayer)
+            let beforeBackgroundView = objc_getAssociatedObject(self, &GLTabBarAssociatedKeys.backgroundViewKey) as? UIView
+            beforeBackgroundView?.removeFromSuperview()
+            if let backgroundView = backgroundView {
+                objc_setAssociatedObject(self, &GLTabBarAssociatedKeys.backgroundViewKey, backgroundView, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                
+                if self.wrapViews.count > 0 {
+                    for (i, v) in self.subviews.enumerated() {
+                        if v == self.wrapViews.first! {
+                            self.insertSubview(backgroundView, at: i)
+                            break
+                        }
+                    }
+                } else {
+                    self.addSubview(backgroundView)
+                }
+                
                 self.setNeedsLayout()
                 self.layoutIfNeeded()
             }
@@ -153,6 +165,7 @@ extension GLTabBar {
             self.wrapViews.append(wrapView)
             if let item = item as? GLTabBarItem, let containerView = item.containerView {
                 item.tabBar = self
+                containerView.tabBar = self
                 wrapView.addSubview(containerView)
             }
         }
@@ -164,8 +177,8 @@ extension GLTabBar {
     /// update layout
     internal func updateLayout() {
         //
-        let backgroundLayer = objc_getAssociatedObject(self, &GLTabBarAssociatedKeys.backgroundLayerKey) as? CALayer
-        backgroundLayer?.frame = self.bounds
+        let backgroundView = objc_getAssociatedObject(self, &GLTabBarAssociatedKeys.backgroundViewKey) as? UIView
+        backgroundView?.frame = self.bounds
         //
         guard let tabBarItems = self.items else {
             return

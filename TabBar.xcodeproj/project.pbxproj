@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8513718925514CD60079B38E /* BackgroundTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513718825514CD60079B38E /* BackgroundTabBarController.swift */; };
+		8513718D25514CF20079B38E /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513718C25514CF20079B38E /* BackgroundViewController.swift */; };
+		8513719725517F230079B38E /* AnimationBadgeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513719625517F230079B38E /* AnimationBadgeTabBarController.swift */; };
+		8513719B25517F340079B38E /* AnimationBadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513719A25517F340079B38E /* AnimationBadgeViewController.swift */; };
+		851371A4255187C60079B38E /* BackgroundItemTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851371A3255187C60079B38E /* BackgroundItemTabBarController.swift */; };
+		851371A8255187D60079B38E /* BackgroundItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851371A7255187D60079B38E /* BackgroundItemController.swift */; };
+		851371B425518AA00079B38E /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851371B325518AA00079B38E /* IndicatorViewController.swift */; };
+		851371B825518AC60079B38E /* IndicatorTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851371B725518AC60079B38E /* IndicatorTabBarController.swift */; };
+		851371BE255193830079B38E /* OnlyImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851371BD255193830079B38E /* OnlyImageViewController.swift */; };
+		851371C2255193A00079B38E /* OnlyImageTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851371C1255193A00079B38E /* OnlyImageTabBarController.swift */; };
 		852F267C254AFA8600BB0B8C /* BadgeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F267B254AFA8600BB0B8C /* BadgeTabBarController.swift */; };
 		852F2680254AFB1200BB0B8C /* BadgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F267F254AFB1200BB0B8C /* BadgeViewController.swift */; };
 		852F2684254B074000BB0B8C /* MixTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F2683254B074000BB0B8C /* MixTabBarController.swift */; };
@@ -30,14 +40,7 @@
 		8588D8CC2548647B0052521F /* GLTabBarBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8C62548647B0052521F /* GLTabBarBadgeView.swift */; };
 		8588D8CD2548647B0052521F /* _GLTabBarItemWrapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8C72548647B0052521F /* _GLTabBarItemWrapView.swift */; };
 		8588D8CE2548647B0052521F /* GLTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8C82548647B0052521F /* GLTabBarItem.swift */; };
-		8588D8D4254865D50052521F /* VC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8D3254865D50052521F /* VC1.swift */; };
-		8588D8D8254865DF0052521F /* VC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8D7254865DF0052521F /* VC2.swift */; };
-		8588D8DB254865E80052521F /* VC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8DA254865E80052521F /* VC3.swift */; };
-		8588D8DE254865F30052521F /* VC4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8DD254865F30052521F /* VC4.swift */; };
-		8588D8E1254865FB0052521F /* VC5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8E0254865FB0052521F /* VC5.swift */; };
 		8588D8E4254866120052521F /* Navi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8E3254866120052521F /* Navi.swift */; };
-		8588D8E72548668E0052521F /* CommonTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8E62548668E0052521F /* CommonTabBarController.swift */; };
-		8588D8EC25486ABE0052521F /* UIDevice+GLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588D8EB25486ABE0052521F /* UIDevice+GLExtension.swift */; };
 		9E3005770676F1449B972F50 /* Pods_TabBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC7F21016579F9EB0199BE6 /* Pods_TabBar.framework */; };
 		F9CF0B49254AC97A00CB19AE /* DynamicHeightTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF0B48254AC97A00CB19AE /* DynamicHeightTabBarController.swift */; };
 		F9CF0B4D254ACA1300CB19AE /* DynamicHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF0B4C254ACA1300CB19AE /* DynamicHeightViewController.swift */; };
@@ -45,6 +48,16 @@
 
 /* Begin PBXFileReference section */
 		6495CC251BF0732079FF6881 /* Pods-TabBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabBar.debug.xcconfig"; path = "Target Support Files/Pods-TabBar/Pods-TabBar.debug.xcconfig"; sourceTree = "<group>"; };
+		8513718825514CD60079B38E /* BackgroundTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTabBarController.swift; sourceTree = "<group>"; };
+		8513718C25514CF20079B38E /* BackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewController.swift; sourceTree = "<group>"; };
+		8513719625517F230079B38E /* AnimationBadgeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationBadgeTabBarController.swift; sourceTree = "<group>"; };
+		8513719A25517F340079B38E /* AnimationBadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationBadgeViewController.swift; sourceTree = "<group>"; };
+		851371A3255187C60079B38E /* BackgroundItemTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundItemTabBarController.swift; sourceTree = "<group>"; };
+		851371A7255187D60079B38E /* BackgroundItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundItemController.swift; sourceTree = "<group>"; };
+		851371B325518AA00079B38E /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
+		851371B725518AC60079B38E /* IndicatorTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorTabBarController.swift; sourceTree = "<group>"; };
+		851371BD255193830079B38E /* OnlyImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyImageViewController.swift; sourceTree = "<group>"; };
+		851371C1255193A00079B38E /* OnlyImageTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyImageTabBarController.swift; sourceTree = "<group>"; };
 		852F267B254AFA8600BB0B8C /* BadgeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeTabBarController.swift; sourceTree = "<group>"; };
 		852F267F254AFB1200BB0B8C /* BadgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeViewController.swift; sourceTree = "<group>"; };
 		852F2683254B074000BB0B8C /* MixTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixTabBarController.swift; sourceTree = "<group>"; };
@@ -70,14 +83,7 @@
 		8588D8C62548647B0052521F /* GLTabBarBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLTabBarBadgeView.swift; sourceTree = "<group>"; };
 		8588D8C72548647B0052521F /* _GLTabBarItemWrapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GLTabBarItemWrapView.swift; sourceTree = "<group>"; };
 		8588D8C82548647B0052521F /* GLTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLTabBarItem.swift; sourceTree = "<group>"; };
-		8588D8D3254865D50052521F /* VC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC1.swift; sourceTree = "<group>"; };
-		8588D8D7254865DF0052521F /* VC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC2.swift; sourceTree = "<group>"; };
-		8588D8DA254865E80052521F /* VC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC3.swift; sourceTree = "<group>"; };
-		8588D8DD254865F30052521F /* VC4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC4.swift; sourceTree = "<group>"; };
-		8588D8E0254865FB0052521F /* VC5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC5.swift; sourceTree = "<group>"; };
 		8588D8E3254866120052521F /* Navi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navi.swift; sourceTree = "<group>"; };
-		8588D8E62548668E0052521F /* CommonTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTabBarController.swift; sourceTree = "<group>"; };
-		8588D8EB25486ABE0052521F /* UIDevice+GLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+GLExtension.swift"; sourceTree = "<group>"; };
 		BE4CF6BE80B08B8791AE372F /* Pods-TabBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabBar.release.xcconfig"; path = "Target Support Files/Pods-TabBar/Pods-TabBar.release.xcconfig"; sourceTree = "<group>"; };
 		EAC7F21016579F9EB0199BE6 /* Pods_TabBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9CF0B48254AC97A00CB19AE /* DynamicHeightTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightTabBarController.swift; sourceTree = "<group>"; };
@@ -96,6 +102,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8513718725514CAC0079B38E /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				8513718825514CD60079B38E /* BackgroundTabBarController.swift */,
+				8513718C25514CF20079B38E /* BackgroundViewController.swift */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
+		8513719525517F010079B38E /* Animation Badge */ = {
+			isa = PBXGroup;
+			children = (
+				8513719625517F230079B38E /* AnimationBadgeTabBarController.swift */,
+				8513719A25517F340079B38E /* AnimationBadgeViewController.swift */,
+			);
+			path = "Animation Badge";
+			sourceTree = "<group>";
+		};
+		851371A22551879A0079B38E /* Background Item */ = {
+			isa = PBXGroup;
+			children = (
+				851371A3255187C60079B38E /* BackgroundItemTabBarController.swift */,
+				851371A7255187D60079B38E /* BackgroundItemController.swift */,
+			);
+			path = "Background Item";
+			sourceTree = "<group>";
+		};
+		851371B225518A580079B38E /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				851371B725518AC60079B38E /* IndicatorTabBarController.swift */,
+				851371B325518AA00079B38E /* IndicatorViewController.swift */,
+			);
+			path = Indicator;
+			sourceTree = "<group>";
+		};
+		851371BC2551935C0079B38E /* Only Image */ = {
+			isa = PBXGroup;
+			children = (
+				851371C1255193A00079B38E /* OnlyImageTabBarController.swift */,
+				851371BD255193830079B38E /* OnlyImageViewController.swift */,
+			);
+			path = "Only Image";
+			sourceTree = "<group>";
+		};
 		852F267A254AFA6700BB0B8C /* Badge */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,9 +223,9 @@
 		8588D8A9254863DD0052521F /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				8588D8EB25486ABE0052521F /* UIDevice+GLExtension.swift */,
 				8588D8AA254863DD0052521F /* AppDelegate.swift */,
 				8588D8AE254863DD0052521F /* ViewController.swift */,
+				8588D8E3254866120052521F /* Navi.swift */,
 				8588D8D0254864FC0052521F /* Example */,
 				8588D8B0254863DD0052521F /* Main.storyboard */,
 				8588D8B3254863DD0052521F /* Assets.xcassets */,
@@ -189,8 +240,8 @@
 			children = (
 				8588D8C52548647B0052521F /* GLTabBarController.swift */,
 				8588D8C32548647B0052521F /* GLTabBar.swift */,
-				8588D8C42548647B0052521F /* GLTabBarItemContainerView.swift */,
 				8588D8C62548647B0052521F /* GLTabBarBadgeView.swift */,
+				8588D8C42548647B0052521F /* GLTabBarItemContainerView.swift */,
 				8588D8C72548647B0052521F /* _GLTabBarItemWrapView.swift */,
 				8588D8C82548647B0052521F /* GLTabBarItem.swift */,
 			);
@@ -200,7 +251,11 @@
 		8588D8D0254864FC0052521F /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				8588D8E62548668E0052521F /* CommonTabBarController.swift */,
+				851371BC2551935C0079B38E /* Only Image */,
+				851371B225518A580079B38E /* Indicator */,
+				851371A22551879A0079B38E /* Background Item */,
+				8513719525517F010079B38E /* Animation Badge */,
+				8513718725514CAC0079B38E /* Background */,
 				852F26A8254B19CB00BB0B8C /* Irregular Item */,
 				852F269A254B0ED100BB0B8C /* HideOrShow */,
 				852F2692254B0CAB00BB0B8C /* Hijack */,
@@ -208,22 +263,8 @@
 				852F2682254B06FC00BB0B8C /* Mix */,
 				852F267A254AFA6700BB0B8C /* Badge */,
 				F9CF0B47254AC95400CB19AE /* DynamicHeight */,
-				8588D8D2254865B90052521F /* ViewControllers */,
 			);
 			path = Example;
-			sourceTree = "<group>";
-		};
-		8588D8D2254865B90052521F /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				8588D8D3254865D50052521F /* VC1.swift */,
-				8588D8D7254865DF0052521F /* VC2.swift */,
-				8588D8DA254865E80052521F /* VC3.swift */,
-				8588D8DD254865F30052521F /* VC4.swift */,
-				8588D8E0254865FB0052521F /* VC5.swift */,
-				8588D8E3254866120052521F /* Navi.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		993BB0645097DE42DD800801 /* Frameworks */ = {
@@ -368,34 +409,37 @@
 			files = (
 				F9CF0B49254AC97A00CB19AE /* DynamicHeightTabBarController.swift in Sources */,
 				852F268C254B096B00BB0B8C /* DynamicWidthTabBarController.swift in Sources */,
+				8513719725517F230079B38E /* AnimationBadgeTabBarController.swift in Sources */,
 				852F269C254B0EEB00BB0B8C /* HideOrShowTabBarController.swift in Sources */,
-				8588D8D4254865D50052521F /* VC1.swift in Sources */,
 				8588D8C92548647B0052521F /* GLTabBar.swift in Sources */,
 				F9CF0B4D254ACA1300CB19AE /* DynamicHeightViewController.swift in Sources */,
-				8588D8DB254865E80052521F /* VC3.swift in Sources */,
 				8588D8AF254863DD0052521F /* ViewController.swift in Sources */,
 				852F26A0254B0F0100BB0B8C /* HideOrShowViewController.swift in Sources */,
 				8588D8CB2548647B0052521F /* GLTabBarController.swift in Sources */,
 				8588D8E4254866120052521F /* Navi.swift in Sources */,
 				8588D8CE2548647B0052521F /* GLTabBarItem.swift in Sources */,
 				852F2698254B0CED00BB0B8C /* HijackViewController.swift in Sources */,
-				8588D8E72548668E0052521F /* CommonTabBarController.swift in Sources */,
 				852F2680254AFB1200BB0B8C /* BadgeViewController.swift in Sources */,
 				852F2694254B0CE200BB0B8C /* HijackTabBarController.swift in Sources */,
+				851371B425518AA00079B38E /* IndicatorViewController.swift in Sources */,
 				8588D8CC2548647B0052521F /* GLTabBarBadgeView.swift in Sources */,
 				8588D8CA2548647B0052521F /* GLTabBarItemContainerView.swift in Sources */,
-				8588D8D8254865DF0052521F /* VC2.swift in Sources */,
-				8588D8DE254865F30052521F /* VC4.swift in Sources */,
+				851371A4255187C60079B38E /* BackgroundItemTabBarController.swift in Sources */,
 				852F2684254B074000BB0B8C /* MixTabBarController.swift in Sources */,
 				852F26AE254B1A2E00BB0B8C /* Irregular_1_TabBarController.swift in Sources */,
+				851371A8255187D60079B38E /* BackgroundItemController.swift in Sources */,
 				8557CB46254C542A0023D1E5 /* IrregularViewController.swift in Sources */,
 				852F267C254AFA8600BB0B8C /* BadgeTabBarController.swift in Sources */,
+				8513719B25517F340079B38E /* AnimationBadgeViewController.swift in Sources */,
+				8513718D25514CF20079B38E /* BackgroundViewController.swift in Sources */,
 				852F2688254B077A00BB0B8C /* MixViewController.swift in Sources */,
 				8588D8AB254863DD0052521F /* AppDelegate.swift in Sources */,
+				851371C2255193A00079B38E /* OnlyImageTabBarController.swift in Sources */,
 				8588D8CD2548647B0052521F /* _GLTabBarItemWrapView.swift in Sources */,
-				8588D8EC25486ABE0052521F /* UIDevice+GLExtension.swift in Sources */,
+				851371BE255193830079B38E /* OnlyImageViewController.swift in Sources */,
 				852F2690254B097D00BB0B8C /* DynamicWidthViewController.swift in Sources */,
-				8588D8E1254865FB0052521F /* VC5.swift in Sources */,
+				8513718925514CD60079B38E /* BackgroundTabBarController.swift in Sources */,
+				851371B825518AC60079B38E /* IndicatorTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

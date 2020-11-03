@@ -15,6 +15,9 @@ open class GLTabBarItemContainerView: UIView {
     /// 是否被选中
     public private(set) var isSelected: Bool = false
     
+    /// tabBar
+    public internal(set) weak var tabBar: GLTabBar?
+    
     /// 偏移量
     public var insets = UIEdgeInsets.zero {
         didSet {

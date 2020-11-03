@@ -1,37 +1,15 @@
 //
-//  Irregular_1_TabBarController.swift
+//  AnimationBadgeTabBarController.swift
 //  TabBar
 //
-//  Created by galaxy on 2020/10/29.
+//  Created by galaxy on 2020/11/3.
 //
 
 import UIKit
+import QuartzCore
 
-fileprivate class PlusItemContainerView: GLTabBarItemContainerView {
-    
-    override init() {
-        super.init()
-        self.normalImage = UIImage(named: "tab_bar_publish")
-        self.selectedImage = UIImage(named: "tab_bar_publish")
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func updateLayout() {
-        super.updateLayout()
-        let imageSize: CGSize = CGSize(width: 90, height: 90)
-        self.imageView.center = CGPoint(x: self.bounds.width / 2.0, y: self.bounds.height / 2.0 - 15)
-        self.imageView.bounds = CGRect(origin: .zero, size: imageSize)
-    }
-}
 
-fileprivate class _PlusViewController: UIViewController {
-    
-}
-
-public class Irregular_1_TabBarController: GLTabBarController {
+public class AnimationBadgeTabBarController: GLTabBarController {
 
     deinit {
         print("\(NSStringFromClass(self.classForCoder)) deinit")
@@ -69,10 +47,6 @@ public class Irregular_1_TabBarController: GLTabBarController {
         return meItemContainerView
     }()
     
-    private lazy var plusContainerView: PlusItemContainerView = {
-        let plusContainerView = PlusItemContainerView()
-        return plusContainerView
-    }()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,13 +57,11 @@ public class Irregular_1_TabBarController: GLTabBarController {
         let tantanItem = GLTabBarItem(containerView: self.tantanItemContainerView)
         let messageItem = GLTabBarItem(containerView: self.messageeItemContainerView)
         let meItem = GLTabBarItem(containerView: self.meItemContainerView)
-        let plusItem = GLTabBarItem(containerView: self.plusContainerView)
         
-        let vc1 = IrregularViewController()
-        let vc2 = IrregularViewController()
-        let vc3 = IrregularViewController()
-        let vc4 = IrregularViewController()
-        let vc5 = _PlusViewController()
+        let vc1 = AnimationBadgeViewController()
+        let vc2 = AnimationBadgeViewController()
+        let vc3 = AnimationBadgeViewController()
+        let vc4 = AnimationBadgeViewController()
         let navi1 = Navi(rootViewController: vc1)
         let navi2 = Navi(rootViewController: vc2)
         let navi3 = Navi(rootViewController: vc3)
@@ -99,21 +71,18 @@ public class Irregular_1_TabBarController: GLTabBarController {
         navi2.tabBarItem = tantanItem
         navi3.tabBarItem = messageItem
         navi4.tabBarItem = meItem
-        vc5.tabBarItem = plusItem
         
-        self.viewControllers = [navi1, navi2, vc5, navi3, navi4]
+        self.viewControllers = [navi1, navi2, navi3, navi4]
         
-        self.canHijackHandler = { (_, _, index) -> Bool in
-            if index == 2 {
-                return true
-            }
-            return false
-        }
+        self.tantanItemContainerView.defaultBadgeView.badgeValue = "10"
         
-        self.didHijackHandler = { (_, _, index) in
-            if index == 2 {
-                print("点击了plus按钮")
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { /* 延迟0.25秒 */
+            let animation = CAKeyframeAnimation()
+            animation.keyPath = "transform.translation.y"
+            animation.values = [NSNumber(value: Double(-5.0)), NSNumber(value: 0.0), NSNumber(value: Double(-5.0))]
+            animation.repeatCount = HUGE
+            animation.duration = 0.5
+            self.tantanItemContainerView.defaultBadgeView.layer.add(animation, forKey: nil)
         }
     }
 }

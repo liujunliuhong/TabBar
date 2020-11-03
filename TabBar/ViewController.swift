@@ -40,14 +40,21 @@ public class ViewController: UIViewController {
         }
         self.view.addSubview(self.tableView)
         
-        let model1 = Model(title: "动态修改TabBar高度", cls: DynamicHeightTabBarController.classForCoder())
-        let model2 = Model(title: "badge的各种样式", cls: BadgeTabBarController.classForCoder())
-        let model3 = Model(title: "GLTabBarItem 和 UITabBarItem 混合使用", cls: MixTabBarController.classForCoder())
-        let model4 = Model(title: "动态修改item宽度", cls: DynamicWidthTabBarController.classForCoder())
-        let model5 = Model(title: "拦截点击事件(index=1的item将被拦截)", cls: HijackTabBarController.classForCoder())
-        let model6 = Model(title: "显示或者隐藏tabbar", cls: HideOrShowTabBarController.classForCoder())
-        let model7 = Model(title: "不规则tabbar - 1", cls: Irregular_1_TabBarController.classForCoder())
-        self.dataSource = [model1, model2, model3, model4, model5, model6, model7]
+        let model1 = Model(title: "只显示图片", cls: OnlyImageTabBarController.classForCoder())
+        let model2 = Model(title: "动态修改TabBar高度", cls: DynamicHeightTabBarController.classForCoder())
+        let model3 = Model(title: "badge的各种样式", cls: BadgeTabBarController.classForCoder())
+        let model4 = Model(title: "GLTabBarItem 和 UITabBarItem 混合使用", cls: MixTabBarController.classForCoder())
+        let model5 = Model(title: "动态修改item宽度", cls: DynamicWidthTabBarController.classForCoder())
+        let model6 = Model(title: "拦截点击事件(index=1的item将被拦截)", cls: HijackTabBarController.classForCoder())
+        let model7 = Model(title: "显示或者隐藏tabbar", cls: HideOrShowTabBarController.classForCoder())
+        let model8 = Model(title: "不规则tabbar - 1", cls: Irregular_1_TabBarController.classForCoder())
+        let model9 = Model(title: "tabbar渐变背景", cls: BackgroundTabBarController.classForCoder())
+        let model10 = Model(title: "badge动画", cls: AnimationBadgeTabBarController.classForCoder())
+        let model11 = Model(title: "背景item", cls: BackgroundItemTabBarController.classForCoder())
+        let model12 = Model(title: "指示器", cls: IndicatorTabBarController.classForCoder())
+        
+        
+        self.dataSource = [model1, model2, model3, model4, model5, model6, model7, model8, model9, model10, model11, model12]
         self.tableView.reloadData()
     }
     public override func viewDidLayoutSubviews() {

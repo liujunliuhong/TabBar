@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import GLDeviceTool
 
 /*
  注意`tabbar`显示或者隐藏时，`tableView`是否被遮挡，需要动态改变`tableView`的`contentInset`

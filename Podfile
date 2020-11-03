@@ -5,5 +5,6 @@ target 'TabBar' do
   use_frameworks!
 
   pod 'SnapKit'
+  pod 'GLDeviceTool'
 
 end

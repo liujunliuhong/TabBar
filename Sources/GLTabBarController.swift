@@ -16,6 +16,10 @@ public typealias GLTabBarControllerDidHijackHandler = ((_ tabBarController: GLTa
 
 open class GLTabBarController: UITabBarController {
 
+    deinit {
+        self.removeNotification()
+    }
+    
     /// 是否可以拦截点击事件
     public var canHijackHandler: GLTabBarControllerCanHijackHandler?
     /// 拦截点击事件的回调
@@ -104,6 +108,9 @@ open class GLTabBarController: UITabBarController {
         tabBar._tabBarelegate = self
         self.setValue(tabBar, forKey: "tabBar")
         
+        self.addNotification()
+        
+        
         tabBar.didSelectIndexClosure = { [weak self] (idx) in
             guard let self = self else { return }
             guard let vc = self.viewControllers?[idx] else {
@@ -139,6 +146,22 @@ open class GLTabBarController: UITabBarController {
     
     open override func value(forUndefinedKey key: String) -> Any? {
         return nil
+    }
+}
+
+extension GLTabBarController {
+    private func addNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationDidChangeNotification), name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    private func removeNotification() {
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    @objc private func orientationDidChangeNotification() {
+        // 屏幕旋转时，重新设置`selectedIndex`，会触发`tabBar`的`_select`方法，然后出发`_reselect`方法
+        let index = self.selectedIndex
+        self.selectedIndex = index
     }
 }
 
