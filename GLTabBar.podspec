@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GLTabBar'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = '一个高度自定义的TabBarController组件，继承自UITabBarController'
   s.description      = '一个高度自定义的TabBarController组件，继承自UITabBarController..'
   s.homepage         = 'https://github.com/liujunliuhong/TabBar'

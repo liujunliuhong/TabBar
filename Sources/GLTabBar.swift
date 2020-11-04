@@ -51,6 +51,14 @@ public class GLTabBar: UITabBar {
         }
     }
     
+    /// 是否隐藏分割线(如果设置为true，此时`shadowColor`属性无效)
+    public var hideShadowImage: Bool = false {
+        didSet {
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
+        }
+    }
+    
     /// 设置items，由系统调用，开发者最好不要手动设置该属性
     public override var items: [UITabBarItem]? {
         didSet {
@@ -132,12 +140,23 @@ public class GLTabBar: UITabBar {
 
 extension GLTabBar {
     private func updateShadowColor(view: UIView) {
-        for (_, v) in view.subviews.enumerated() {
-            if NSStringFromClass(v.classForCoder) == "_UIBarBackgroundShadowView" {
-                v.backgroundColor = self.shadowColor
-                break
-            } else {
-                self.updateShadowColor(view: v)
+        if self.hideShadowImage {
+            for (_, v) in view.subviews.enumerated() {
+                if NSStringFromClass(v.classForCoder) == "_UIBarBackgroundShadowView" {
+                    v.isHidden = true
+                    break
+                } else {
+                    self.updateShadowColor(view: v)
+                }
+            }
+        } else {
+            for (_, v) in view.subviews.enumerated() {
+                if NSStringFromClass(v.classForCoder) == "_UIBarBackgroundShadowView" {
+                    v.backgroundColor = self.shadowColor
+                    break
+                } else {
+                    self.updateShadowColor(view: v)
+                }
             }
         }
     }
