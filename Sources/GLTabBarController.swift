@@ -92,14 +92,6 @@ open class GLTabBarController: UITabBarController {
         }
     }
     
-    /// 是否隐藏`tabBar`
-    public var hideTabBar: Bool = false {
-        didSet {
-            self.view.setNeedsLayout()
-            self.view.layoutIfNeeded()
-        }
-    }
-    
     private var shouldNext: Bool = true
     
     open override func viewDidLoad() {
@@ -130,17 +122,6 @@ open class GLTabBarController: UITabBarController {
             frame.size.height = _tabBarHeight
             frame.origin.y = frame.origin.y - (_tabBarHeight - beforeHeight)
             self.tabBar.frame = frame
-        }
-        if self.hideTabBar {
-            var frame = self.tabBar.frame
-            frame.origin.y = UIScreen.main.bounds.height
-            self.tabBar.frame = frame
-            self.tabBar.isHidden = true
-        } else {
-            var frame = self.tabBar.frame
-            frame.origin.y = UIScreen.main.bounds.height - frame.height
-            self.tabBar.frame = frame
-            self.tabBar.isHidden = false
         }
     }
     

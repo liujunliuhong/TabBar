@@ -57,7 +57,7 @@ public class HideOrShowViewController: UIViewController {
     
     private func updateTableViewInset() {
         let tabBarVC = self.tabBarController as? GLTabBarController
-        let isHide = tabBarVC?.hideTabBar ?? false
+        let isHide = tabBarVC?.tabBar.isHidden ?? false
         if isHide {
             self.tableView.contentInset = UIEdgeInsets(top: UIDevice.gl_statusBarHeight + 44.0, left: 0, bottom: UIDevice.gl_homeIndicatorHeight, right: 0)
         } else {
@@ -85,9 +85,9 @@ extension HideOrShowViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let tabBarVC = self.tabBarController as? GLTabBarController
-        var isHide = tabBarVC?.hideTabBar ?? false
+        var isHide = tabBarVC?.tabBar.isHidden ?? false
         isHide = !isHide
-        tabBarVC?.hideTabBar = isHide
+        tabBarVC?.tabBar.isHidden = isHide
         
         self.updateTableViewInset()
     }
