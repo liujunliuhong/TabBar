@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 public class DynamicHeightViewController: UIViewController {
 
@@ -25,24 +26,27 @@ public class DynamicHeightViewController: UIViewController {
         self.navigationItem.title = "动态改变tabBar高度"
         
         self.view.addSubview(self.button)
-        
+    
+        button.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-20)
+            make.width.equalTo(100)
+            make.height.equalTo(50)
+            make.centerX.equalToSuperview()
+        }
     }
     
-    public override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.button.center = self.view.center
-        self.button.bounds = CGRect(x: 0, y: 0, width: 150, height: 50)
-    }
 
     @objc private func dismissAction() {
         self.tabBarController?.dismiss(animated: true, completion: nil)
     }
     
     @objc private func buttonClickAction() {
-        let heights: [CGFloat] = [60, 70, 80, 90, 100, 120, 130]
+        let heights: [CGFloat] = [20, 30, 40, 50, 60, 70, 80]
         let index = arc4random() % UInt32(heights.count)
         let height = heights[Int(index)]
         let tabBarVC = self.tabBarController as? GLTabBarController
-        tabBarVC?.tabBarHeight = height /// 高度如果比较大，会使图片和文字之间的间距增加，若要进行矫正，可以修改`GLTabBarItemContainerView`的`insets`属性
+//        tabBarVC?.incrementTabBarHeight = height
+        (tabBarVC?.tabBar as? GLTabBar)?.incrementTabBarHeight = height
+        // 高度如果比较大，会使图片和文字之间的间距增加，若要进行矫正，可以修改`GLTabBarItemContainerView`的`insets`属性
     }
 }

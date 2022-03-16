@@ -71,3 +71,15 @@ public class HideOrShowTabBarController: GLTabBarController {
         self.viewControllers = [navi1, navi2, navi3, navi4]
     }
 }
+
+extension UIColor {
+    internal func toImage(size: CGSize = CGSize(width: 1.0, height: 1.0)) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 1)
+        defer { UIGraphicsEndImageContext() }
+        setFill()
+        UIRectFill(CGRect(origin: .zero, size: size))
+        guard let aCgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else { return nil }
+        return UIImage(cgImage: aCgImage)
+    }
+
+}

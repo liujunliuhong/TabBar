@@ -74,6 +74,22 @@ public class GLTabBar: UITabBar {
         }
     }
     
+    /// 设置`tabBar`的增量高度
+    public var incrementTabBarHeight: CGFloat? {
+        didSet {
+            if let _ = self.incrementTabBarHeight {
+                self.superview?.setNeedsLayout()
+                self.superview?.layoutIfNeeded()
+                if let vc = _tabBarelegate as? UITabBarController {
+                    for subVc in (vc.viewControllers ?? []) {
+                        subVc.view.setNeedsLayout()
+                        subVc.view.layoutIfNeeded()
+                    }
+                }
+            }
+        }
+    }
+    
     /// 背景`View`
     public var backgroundView: UIView? {
         didSet {
@@ -119,6 +135,14 @@ public class GLTabBar: UITabBar {
         self.updateLayout()
         //
         self.updateShadowColor(view: self)
+    }
+    
+    public override func sizeThatFits(_ size: CGSize) -> CGSize {
+        var size = super.sizeThatFits(size)
+        if let incrementTabBarHeight = incrementTabBarHeight {
+            size.height += incrementTabBarHeight
+        }
+        return size
     }
     
     public override func value(forUndefinedKey key: String) -> Any? {

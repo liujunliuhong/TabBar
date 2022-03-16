@@ -70,5 +70,18 @@ public class DynamicHeightTabBarController: GLTabBarController {
         
         self.viewControllers = [navi1, navi2, navi3, navi4]
         
+        if let t = tabBar as? GLTabBar {
+            t.isTranslucent = false
+            if #available(iOS 15.0, *) {
+                let appearance = UITabBarAppearance()
+                appearance.backgroundImage = UIColor.red.toImage()
+                t.standardAppearance = appearance
+                t.scrollEdgeAppearance = appearance
+            } else {
+                t.backgroundImage = UIColor.red.toImage()
+            }
+            
+            
+        }
     }
 }

@@ -1,20 +1,16 @@
 PODS:
-  - GLDeviceTool (1.0.1)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
-  - GLDeviceTool
   - SnapKit
 
 SPEC REPOS:
   trunk:
-    - GLDeviceTool
     - SnapKit
 
 SPEC CHECKSUMS:
-  GLDeviceTool: 40f721c8354e2418ea4fa9eb7f0b604ff2f8e131
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 9e3a10c1d12cb12f80972acd7eb748df2c564610
+PODFILE CHECKSUM: 405c8598a4481b8c75fa049a972c81009daab936
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.11.2

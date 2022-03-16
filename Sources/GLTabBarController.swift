@@ -82,16 +82,6 @@ open class GLTabBarController: UITabBarController {
         }
     }
     
-    /// 设置`tabBar`的高度
-    public var tabBarHeight: CGFloat? {
-        didSet {
-            if let _ = self.tabBarHeight {
-                self.view.setNeedsLayout()
-                self.view.layoutIfNeeded()
-            }
-        }
-    }
-    
     private var shouldNext: Bool = true
     
     open override func viewDidLoad() {
@@ -111,17 +101,6 @@ open class GLTabBarController: UITabBarController {
             self.shouldNext = false
             self.selectedIndex = idx // 避免无限循环
             self.delegate?.tabBarController?(self, didSelect: vc)
-        }
-    }
-    
-    open override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if let _tabBarHeight = self.tabBarHeight {
-            var frame = self.tabBar.frame
-            let beforeHeight: CGFloat = frame.size.height
-            frame.size.height = _tabBarHeight
-            frame.origin.y = frame.origin.y - (_tabBarHeight - beforeHeight)
-            self.tabBar.frame = frame
         }
     }
     

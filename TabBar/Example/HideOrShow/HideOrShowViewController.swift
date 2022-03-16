@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import GLDeviceTool
 
 /*
  注意`tabbar`显示或者隐藏时，`tableView`是否被遮挡，需要动态改变`tableView`的`contentInset`
@@ -59,9 +58,24 @@ public class HideOrShowViewController: UIViewController {
         let tabBarVC = self.tabBarController as? GLTabBarController
         let isHide = tabBarVC?.tabBar.isHidden ?? false
         if isHide {
-            self.tableView.contentInset = UIEdgeInsets(top: UIDevice.gl_statusBarHeight + 44.0, left: 0, bottom: UIDevice.gl_homeIndicatorHeight, right: 0)
+            if #available(iOS 11.0, *) {
+                self.tableView.contentInset = UIEdgeInsets(top: UIApplication.shared.statusBarFrame.height + 44.0,
+                                                           left: 0,
+                                                           bottom: UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0,
+                                                           right: 0)
+            } else {
+                self.tableView.contentInset = UIEdgeInsets(top: UIApplication.shared.statusBarFrame.height + 44.0,
+                                                           left: 0,
+                                                           bottom: 0,
+                                                           right: 0)
+            }
+            
+            
         } else {
-            self.tableView.contentInset = UIEdgeInsets(top: UIDevice.gl_statusBarHeight + 44.0, left: 0, bottom: self.tabBarController?.tabBar.frame.height ?? 0, right: 0)
+            self.tableView.contentInset = UIEdgeInsets(top: UIApplication.shared.statusBarFrame.height + 44.0,
+                                                       left: 0,
+                                                       bottom: self.tabBarController?.tabBar.frame.height ?? 0,
+                                                       right: 0)
         }
     }
 }
